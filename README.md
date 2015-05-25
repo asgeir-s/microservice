@@ -1,12 +1,12 @@
 # Microservice Seed for Akka HTTP
-
+Developer seed, making it easy to get started developing with:
 - Akka
 - Akka HTTP
 - Akka HTTP Testkit
 - Service test
 - Unit test
 - Docker
-- CircleCI (with continuous deployment)
+- CircleCI (with continuous integration/deployment)
 - Elastic Beanstalk (AWS)
 - Scala Test
 
