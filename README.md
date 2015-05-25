@@ -61,3 +61,9 @@ Then
 	-deploy-s (deploy on staging)
 	-test-s-s (service tests ageins staging)
 	-deploy-p (deploy in production)
+	
+## Resources
+Some good resources:
+- [Iterators: akka-http-microservice](https://github.com/theiterators/akka-http-microservice "akka-http-microservice")
+- [Iterators: reactive-microservices](https://github.com/theiterators/reactive-microservices "reactive-microservices")
+- [Akka Docs](http://akka.io/docs/ "akka docs")
