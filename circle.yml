@@ -1,0 +1,32 @@
+machine:
+  python:
+    version: 2.7.3
+  services:
+    - docker
+  environment:
+      AWS_DEFAULT_REGION: us-west-2
+
+dependencies:
+  pre:
+    - wget -q https://dl.bintray.com/sbt/debian/sbt-0.13.8.deb
+    - sudo dpkg -i sbt-0.13.8.deb
+    - pip install awscli
+  cache_directories:
+    - "~/.ivy2"
+    - "~/.sbt"
+  override:
+    - chmod 777 sh/deploy.sh
+    - docker info
+    - make build
+
+test:
+  pre:
+  override:
+    - make test-u
+    - make test-s
+
+deployment:
+  elasticbeanstalk:
+    branch: master
+    commands:
+      - ./sh/deploy.sh $CIRCLE_SHA1
