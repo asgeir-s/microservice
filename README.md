@@ -36,18 +36,28 @@ available addresses:
 	http://localhost:8888/ping
 	http://localhost:8888/route/watever/deep
 
-##### Deployment
+## Deployment
+The circle file is setup to deploy automatically to staging area. But for this to work you have to setup the application and environment on AWS Elastic Beanstalk (you can use the AWS console). Then configure EB_BUCKET, EB_APPLICATION_NAME and EB_ENVIRONMENT_NAME in sh/deploy.sh script.
+ 
+#### To deploy from local
 One time setup:
 	
 	cd docker
 	eb init (then select environment etc...)
+	
+Then
+
+	make deploy-s
+	or
+	make deploy-p
+
 
 ## Makefile
 	-test 
 	-test-u (unit)
 	-test-s (service)
 	-run-l (run local)
-	-build (builds a artifect and place it in the docker folder and afther that build the docker container)
+	-build (builds a artifect and place it in the docker folder and after that build the docker container)
 	-deploy-s (deploy on staging)
 	-test-s-s (service tests ageins staging)
 	-deploy-p (deploy in production)
