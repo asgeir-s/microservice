@@ -11,9 +11,9 @@
 - Scala Test
 
 ## OSX Docker Set Up
-Local if when runing docker: localhost
 
 One time setup:
+install boot2docker then:
 
 	boot2docker init
 	VBoxManage modifyvm "boot2docker-vm" --natpf1 "postgres-port,tcp,127.0.0.1,5432,,5432" #osx specific bind (local) # set postgres to "listen on *" and "host all all 0.0.0.0/0 trust"
