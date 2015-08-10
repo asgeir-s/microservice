@@ -6,7 +6,7 @@ import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.StatusCodes._
 import akka.http.scaladsl.server.Directives._
 import akka.pattern.ask
-import akka.stream.FlowMaterializer
+import akka.stream.Materializer
 import akka.util.Timeout
 import com.typesafe.config.Config
 
@@ -17,7 +17,7 @@ trait Service {
 
   implicit def executor: ExecutionContextExecutor
 
-  implicit val materializer: FlowMaterializer
+  implicit val materializer: Materializer
 
   implicit val timeout: Timeout
 

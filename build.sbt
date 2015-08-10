@@ -4,7 +4,7 @@ name := "microservice"
 
 version := "0.1.0"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.7"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
@@ -19,8 +19,8 @@ mainClass in assembly := Some("com.cluda.microservice.Boot")
 resolvers += "sonatype-oss-snapshot" at "https://oss.sonatype.org/content/repositories/snapshots" // for xchange snapshots
 
 libraryDependencies ++= {
-  val akkaV       = "2.3.11"
-  val akkaStreamV = "1.0-RC3"
+  val akkaV       = "2.3.12"
+  val akkaStreamV = "1.0"
   val scalaTestV  = "2.2.4"
   Seq(
     //"com.typesafe.akka"   %%    "akka-actor"                              %     akkaV,
