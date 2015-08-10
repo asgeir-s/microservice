@@ -1,4 +1,6 @@
 machine:
+  java:
+    version: openjdk7
   python:
     version: 2.7.3
   services:
