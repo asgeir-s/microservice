@@ -5,10 +5,10 @@ import akka.http.scaladsl.model.StatusCodes._
 
 class PingServiceSpec extends TestService {
   it should "responds accept the new stream and return the id" in {
-    Get("/ping") ~> routes ~> check {
+    Get("/pong") ~> routes ~> check {
       status shouldBe OK
       val response = responseAs[String]
-      assert(response.contains("pong"))
+      assert(response.contains("ping"))
     }
   }
 

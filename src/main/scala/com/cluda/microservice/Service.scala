@@ -1,5 +1,7 @@
 package com.cluda.microservice
 
+import java.util.UUID
+
 import akka.actor.{ActorSystem, Props}
 import akka.event.LoggingAdapter
 import akka.http.scaladsl.model.HttpResponse
@@ -18,13 +20,13 @@ trait Service {
   implicit def executor: ExecutionContextExecutor
 
   implicit val materializer: Materializer
-
   implicit val timeout: Timeout
-
 
   def config: Config
 
   val logger: LoggingAdapter
+  val runID = UUID.randomUUID()
+
 
   /**
    * Start a actor and pass it the decodedHttpRequest.
@@ -41,7 +43,11 @@ trait Service {
   }
 
   val routes = {
-    logRequestResult("route") {
+    pathPrefix("ping") {
+      complete {
+        HttpResponse(OK, entity = "runID: " + runID)
+      }
+    } ~
       pathPrefix("route" / Segment) { someString =>
         pathPrefix("deep") {
           post {
@@ -58,12 +64,12 @@ trait Service {
             }
         }
       } ~
-        pathPrefix("ping") {
-          complete {
-            perRequestActor(Props[PongActor], "ping")
-          }
+      pathPrefix("pong") {
+        complete {
+          perRequestActor(Props[PongActor], "pong")
         }
-    }
+      }
+
 
   }
 }

@@ -6,7 +6,7 @@ import akka.http.scaladsl.model.StatusCodes._
 
 class PongActor extends Actor with ActorLogging {
   override def receive: Receive = {
-    case "ping" =>
-      sender() ! HttpResponse(OK, entity = "pong")
+    case "pong" =>
+      sender() ! HttpResponse(OK, entity = "ping")
   }
 }
