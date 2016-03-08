@@ -70,6 +70,5 @@ trait Service {
         }
       }
 
-
   }
 }

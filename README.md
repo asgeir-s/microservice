@@ -61,7 +61,16 @@ Then
 	-deploy-s (deploy on staging)
 	-test-s-s (service tests ageins staging)
 	-deploy-p (deploy in production)
-	
+
+
+## Troubleshooting
+This version of akka is logging a error when dropping a TLS connection:
+
+    [ERROR] [03/08/2016 16:10:27.036] [default-akka.actor.default-dispatcher-2] [akka://default/user/StreamSupervisor-0/flow-1-0-unknown-operation] Error in stage [recover]: No elements passed in the last 1 minute. (akka.http.impl.engine.HttpConnectionTimeoutException)
+    [DEBUG] [03/08/2016 16:10:27.037] [default-akka.actor.default-dispatcher-2] [akka://default/user/StreamSupervisor-0/flow-1-0-unknown-operation] Aborting tcp connection because of upstream failure: No elements passed in the last 1 minute.
+
+Don't worry about this. Should only be a DEBUG entry on next version
+
 ## Resources
 Some good resources:
 - [Iterators: akka-http-microservice](https://github.com/theiterators/akka-http-microservice "akka-http-microservice")
